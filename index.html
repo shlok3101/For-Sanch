@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+.card{
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(10px);
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(255,0,120,0.3);
+  animation:float 3s ease-in-out infinite;
+}
+h1{
+  font-family:'Pacifico',cursive;
+  color:#ff3f8b;
+}
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:#ff3f8b;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+button:hover{
+  transform:scale(1.1);
+}
+.heart{
+  position:absolute;
+  color:pink;
+  font-size:20px;
+  animation:fall 5s linear infinite;
+}
+img{
+  margin-top:20px;
+  width:180px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(255,0,120,0.4);
+  display:none;
+  margin-left:auto;
+  margin-right:auto;
+}
+@keyframes fall{
+  from{top:-10vh;opacity:1;}
+  to{top:110vh;opacity:0;}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Heyyy!! My Love 💕</h1>
+  <p>You are the bestest, and I am the stupidest.</p>
+
+  <button onclick="showMsg()">Click Me 💌</button>
+
+  <img id="photo" src="us.jpeg" alt="My Love">
+  <p id="msg"></p>
+</div>
+
+<script>
+function showMsg(){
+  document.getElementById("msg").innerHTML = 
+  "I love you more than shawarmas & kachoris ❤️🌯🥟";
+
+  document.getElementById("photo").style.display = "block";
+}
+
+function createHeart(){
+  let heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(Math.random()*3+2)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),5000);
+}
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
